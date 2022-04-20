@@ -1,3 +1,5 @@
 <resources>
 	<string name="app_name">GoogleSearch</string>
+	<string name="all_search">Search</string>
+	<string name="main_search_input_hint">Enter a statement to search…</string>
 </resources>
