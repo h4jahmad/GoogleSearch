@@ -2,17 +2,43 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
 	android:id="@+id/activity_main_result_item_root"
+	android:layout_width="match_parent"
+	android:layout_height="86dp"
 	android:background="?attr/selectableItemBackground"
+	app:contentPaddingBottom="8dp"
 	app:contentPaddingLeft="16dp"
-	app:contentPaddingRight="16dp">
+	app:contentPaddingRight="16dp"
+	app:contentPaddingTop="8dp">
 
-	<TextView
-		android:id="@+id/tv"
+	<LinearLayout
 		android:layout_width="match_parent"
-		android:layout_height="56dp"
-		android:gravity="center_vertical"
-		tools:text="ghjsdegdskg" />
+		android:layout_height="match_parent"
+		android:orientation="vertical">
+
+		<TextView
+			android:id="@+id/activity_main_result_item_url"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="12sp"
+			tools:text="https://twitter.com/elonmusk" />
+
+		<TextView
+			android:id="@+id/activity_main_result_item_title"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="4dp"
+			android:gravity="center_vertical"
+			android:textColor="@color/link_text"
+			android:textSize="18sp"
+			tools:text="Elon Musk (@elonmusk) / Twitter" />
+
+		<TextView
+			android:id="@+id/activity_main_result_item_description"
+			android:layout_width="match_parent"
+			android:layout_height="28dp"
+			android:ellipsize="end"
+			tools:text="Grimes. Bitcoin cryptocurrency. Joe Rogan. Tesla Motors. Ethereum cryptocurrency ; $TSLA. SpaceX. Investing. The Joe Rogan Experience. $BTC ; $ETH. Business news." />
+
+	</LinearLayout>
 </androidx.cardview.widget.CardView>

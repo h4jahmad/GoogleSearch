@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.wildlearner.ex.googlesearch.datasource.MainDataSource
-import com.wildlearner.ex.googlesearch.model.Results
+import com.wildlearner.ex.googlesearch.model.Result
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -18,7 +18,7 @@ import kotlin.coroutines.EmptyCoroutineContext
 class MainViewModel @Inject constructor(private val mainDataSource: MainDataSource) : ViewModel() {
 
 	val errorMessage = MutableLiveData<String>()
-	val searchResultList = MutableLiveData<List<Results>>()
+	val searchResultList = MutableLiveData<List<Result>>()
 	val loading = MutableLiveData<Boolean>()
 //	var job: Job? = null
 

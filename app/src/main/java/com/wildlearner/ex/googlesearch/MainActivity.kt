@@ -1,11 +1,13 @@
 package com.wildlearner.ex.googlesearch
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.wildlearner.ex.googlesearch.databinding.ActivityMainBinding
-import com.wildlearner.ex.googlesearch.model.Results
+import com.wildlearner.ex.googlesearch.model.Result
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -20,8 +22,8 @@ class MainActivity : AppCompatActivity() {
 		binding = ActivityMainBinding.inflate(layoutInflater)
 		setContentView(root)
 
-		val adapter = ResultListAdapter(object : ItemInteractionListener<Results> {
-			override fun onItemClicked(item: Results, position: Int) {
+		val adapter = ResultListAdapter(object : ItemInteractionListener<Result> {
+			override fun onItemClicked(item: Result, position: Int) {
 				openUrl(item.link!!)
 			}
 		})
@@ -44,7 +46,10 @@ class MainActivity : AppCompatActivity() {
 	}
 
 	private fun openUrl(link: String) {
-		showSnack(root, link)
+		val intent = with(Intent(Intent.ACTION_VIEW, Uri.parse(link))) {
+			addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+		}
+		startActivity(intent)
 	}
 
 }

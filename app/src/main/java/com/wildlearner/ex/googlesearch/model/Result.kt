@@ -3,7 +3,7 @@ package com.wildlearner.ex.googlesearch.model
 import com.google.gson.annotations.SerializedName
 
 
-data class Results(
+data class Result(
 
 	@SerializedName("title") val title: String?,
 	@SerializedName("link") val link: String?,

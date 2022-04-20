@@ -4,12 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.wildlearner.ex.googlesearch.databinding.ActivityMainResultItemBinding
-import com.wildlearner.ex.googlesearch.model.Results
+import com.wildlearner.ex.googlesearch.model.Result
 
-class ResultListAdapter(private val listener: ItemInteractionListener<Results>) :
+class ResultListAdapter(private val listener: ItemInteractionListener<Result>) :
 	RecyclerView.Adapter<ResultListAdapter.ItemViewHolder>() {
 
-	private var resultList = mutableListOf<Results>()
+	private var resultList = mutableListOf<Result>()
 
 	override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder =
 		ItemViewHolder(
@@ -24,23 +24,25 @@ class ResultListAdapter(private val listener: ItemInteractionListener<Results>) 
 
 	override fun getItemCount(): Int = resultList.size
 
-	fun setResults(results: List<Results>) {
+	fun setResults(results: List<Result>) {
 		resultList = results.toMutableList()
 		notifyDataSetChanged()
 	}
 
-	private fun getItem(position: Int): Results = resultList[position]
+	private fun getItem(position: Int): Result = resultList[position]
 
 	class ItemViewHolder(
 		private val binding: ActivityMainResultItemBinding,
-		private val listener: ItemInteractionListener<Results>,
+		private val listener: ItemInteractionListener<Result>,
 	) :
 		RecyclerView.ViewHolder(binding.root) {
-		fun bind(item: Results, position: Int) {
+		fun bind(item: Result, position: Int) {
 			binding.activityMainResultItemRoot.setOnClickListener {
 				listener.onItemClicked(item, position)
 			}
-			binding.tv.text = item.toString()
+			binding.activityMainResultItemUrl.text = item.link.toString()
+			binding.activityMainResultItemTitle.text = item.title.toString()
+			binding.activityMainResultItemDescription.text = item.description.toString()
 		}
 	}
 
